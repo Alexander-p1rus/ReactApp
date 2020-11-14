@@ -1,0 +1,19 @@
+
+.content {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 50px 20px;
+    grid-template-areas:
+    ". a a . . ."
+    ". b b . . .";
+    grid-gap: 5px;
+}
+
+.btn {
+    grid-area: b;
+
+}
+
+.area {
+    grid-area: a;
+}

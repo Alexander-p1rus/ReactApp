@@ -1,23 +1,22 @@
 import React from "react";
 import classes from "./Profile.module.css"
+import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
-  return (
-    <div className={classes.content}>
-      <div>
-        <img src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg" />
-      </div>
-      <div>ava+descr</div>
-      <div>
-        my posts
-        <div>new post</div>
-        <div className={classes.posts}>
-            <div className={classes.item}>post1</div>
-            <div className={classes.item}>post 2</div>
-        </div>
-      </div>
-    </div>
-  );
+    return (
+        <div className={classes.content}>
+            <div>
+                <img
+                    src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg"
+                    className={classes.img}
+                />
+            </div>
+            <div>ava+descr</div>
+            <div>
+                <MyPosts/>
+            </div>
+        </div>)
+
 };
 
 export default Profile
