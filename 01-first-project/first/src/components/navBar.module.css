@@ -1,0 +1,21 @@
+.nav {
+    background-color: rgb(250, 250, 165);
+    grid-area: n;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.item {
+    margin: 10px auto 0px auto;
+
+}
+
+
+.item a {
+    color: #12d2bd;
+    text-decoration: none;
+
+}
+
+
