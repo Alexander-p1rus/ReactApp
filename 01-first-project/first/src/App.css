@@ -12,3 +12,15 @@
     box-sizing: border-box;
 }
 
+.app-wrapper-content {
+    background-color: rgb(136, 136, 246);
+    grid-area: c;
+}
+
+a{
+    text-decoration: none;
+}
+
+*{
+    box-sizing: border-box;
+}

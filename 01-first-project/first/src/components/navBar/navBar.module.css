@@ -6,16 +6,16 @@
     padding-top: 10px;
 }
 
-.item {
-    margin: 10px auto 0px auto;
-
-}
-
-
-.item a {
+.item a{
+    margin: 10px auto 0 auto;
     color: #12d2bd;
-    text-decoration: none;
-
 }
+
+
+
+.nav .activate_link {
+    color: cornflowerblue;
+}
+
 
 

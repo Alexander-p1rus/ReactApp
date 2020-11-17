@@ -1,0 +1,29 @@
+.dialog {
+    display: grid;
+    grid-template-columns: 3fr 9fr
+}
+
+.dialogs {
+    padding: 10px;
+}
+
+.dialog_item {
+    text-align: center;
+}
+
+.dialog_item a {
+    text-align: center;
+    color: #ca0505;
+}
+
+.messages {
+    text-align: center;
+}
+
+.message_item {
+    color:yellow;
+}
+
+.dialog_active {
+    color: #565604;
+}

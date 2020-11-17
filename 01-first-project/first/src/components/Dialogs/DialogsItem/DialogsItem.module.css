@@ -1,0 +1,17 @@
+
+
+
+
+.dialog_item {
+    text-align: center;
+}
+
+.dialog_item a {
+    text-align: center;
+    color: #ca0505;
+}
+
+
+.dialog_active {
+    color: #565604;
+}
