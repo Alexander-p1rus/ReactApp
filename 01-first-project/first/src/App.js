@@ -4,19 +4,19 @@ import Header from "./components/Header/Header";
 import NavBar from "./components/navBar/navBar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import  {BrowserRouter,Route} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 
 
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <NavBar/>
+                <NavBar />
                 <div className="app-wrapper-content">
-                    <Route  path='/profile' component={Profile}/>
-                    <Route path='/message' component={Dialogs}/>
+                    <Route  path='/profile'  render={()=><Profile profileState={props.state.profileState}/>}/>
+                    <Route path='/message'   render={()=><Dialogs dialogsState={props.state.dialogsState} />}/>
                 </div>
             </div>
         </BrowserRouter>

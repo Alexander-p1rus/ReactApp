@@ -5,25 +5,12 @@ import MessageItem from "./MessageItem/MessageItem";
 import DialogsItem from "./DialogsItem/DialogsItem";
 
 const Dialogs = (props) => {
-    const dialogsData = [
-        {id: 1, name: 'Sasha'},
-        {id: 2, name: 'Anya'},
-        {id: 3, name: 'Ilya'}
-    ]
-
-    const messageData = [
-        {id: 1, message: 'hello mujiki'},
-        {id: 2, message: 'Kak dela'},
-        {id: 3, message: '4to novogo'}
-    ]
-
-    const getDialogs = dialogsData.map(arr => <DialogsItem name={arr.name} id={arr.id}/>)
-    const getMessage = messageData.map(mes=><MessageItem message={mes.message} id={mes.id}/>)
-
+    const getDialogUsers = props.dialogsState.dialogsData.map(dialog => <DialogsItem name={dialog.name} id={dialog.id} avatar={dialog.avatar}/>)
+    const getMessage = props.dialogsState.messageData.map(message => <MessageItem message={message.message} id={message.id}/>)
     return (
         <div className={classes.dialog}>
             <div className={classes.dialogs}>
-                {getDialogs}
+                {getDialogUsers}
             </div>
             <div className={classes.messages}>
                 {getMessage}

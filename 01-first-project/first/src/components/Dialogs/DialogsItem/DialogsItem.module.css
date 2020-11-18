@@ -1,9 +1,17 @@
 
-
+.dialog_item img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
 
 
 .dialog_item {
+    display: flex;
+    padding: 10px;
     text-align: center;
+    align-items: center;
 }
 
 .dialog_item a {
