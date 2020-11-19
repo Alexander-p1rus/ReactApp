@@ -11,7 +11,7 @@ const Profile = (props) => {
             <ProfileInfo />
             <div>
                 {/*{console.log(props.dialogsData)}*/}
-                <MyPosts postItems={props.profileState.postItems} />
+                <MyPosts addPost={props.addPost} postItems={props.profileState.postItems} />
             </div>
         </div>)
 

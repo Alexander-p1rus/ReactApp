@@ -1,11 +1,19 @@
 import React from "react";
 import classes from "./CreatePost.module.css"
 
-const CreatePost = () => {
+const CreatePost = (props) => {
+    let textData=React.createRef()
+
+
+    const GetPost=()=>{
+        let text=textData.current.value
+        props.addPost(text)
+        textData=''
+    }
     return (
         <div className={classes.content}>
-            <textarea className={classes.area}></textarea>
-            <button className={classes.btn}>post</button>
+            <textarea ref={textData} className={classes.area}></textarea>
+            <button onClick={GetPost} className={classes.btn}>post</button>
         </div>
     )
 }

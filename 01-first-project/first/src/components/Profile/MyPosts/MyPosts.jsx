@@ -7,16 +7,19 @@ import CreatePost from "./CreatePost/CreatePost";
 
 
 let MyPosts = (props) => {
-    const getPostItems = props.postItems.map((post)=>{
-        return(
-            <Post Message={post.postText} id={post.likeCount} />
+    const getPostItems = props.postItems.map((post) => {
+        return (
+            <Post Message={post.postText} id={post.likeCount}/>
         )
     })
+
+
     return (
         <div className={classes.MyPosts}>
-            <CreatePost/>
-            {/*{console.log(MyPosts)}*/}
-            {getPostItems}
+            <CreatePost addPost={props.addPost}/>
+            <div className={classes.post_content}>
+                {getPostItems}
+            </div>
         </div>
     );
 }

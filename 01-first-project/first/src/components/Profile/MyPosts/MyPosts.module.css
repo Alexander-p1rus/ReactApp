@@ -21,3 +21,8 @@
 .input{
     width: 20%;
 }
+
+.post_content{
+    display: flex;
+    flex-direction: column-reverse;
+}

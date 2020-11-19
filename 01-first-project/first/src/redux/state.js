@@ -1,3 +1,5 @@
+import {renderUI} from "../renderUI";
+
 const state = {
     profileState: {
         postItems: [
@@ -34,4 +36,26 @@ const state = {
     }
 
 }
+
+
+
+
+
+
+
+
+export const addPost =(post)=> {
+
+         let  Data={
+            postText: post,
+            likeCount: 0
+             }
+
+          state.profileState.postItems.push(Data)
+          renderUI(state,addPost);
+
+
+
+}
 export default state
+
