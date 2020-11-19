@@ -6,7 +6,8 @@ const state = {
             {postText: 'privet', likeCount: 8},
             {postText: 'kak dela', likeCount: 8},
             {postText: 'top posti', likeCount: 8}
-        ]
+        ],
+        newPostText: "sasha"
     },
 
     dialogsState: {
@@ -37,24 +38,21 @@ const state = {
 
 }
 
+export const updatePostText = (text) => {
+    state.profileState.newPostText = text
+    renderUI(state, addPost, updatePostText);
+}
 
+export const addPost = () => {
 
+    let Data = {
+        postText: state.profileState.newPostText,
+        likeCount: 0
+    }
 
-
-
-
-
-export const addPost =(post)=> {
-
-         let  Data={
-            postText: post,
-            likeCount: 0
-             }
-
-          state.profileState.postItems.push(Data)
-          renderUI(state,addPost);
-
-
+    state.profileState.postItems.push(Data)
+    renderUI(state, addPost, updatePostText);
+    state.profileState.newPostText=''
 
 }
 export default state
