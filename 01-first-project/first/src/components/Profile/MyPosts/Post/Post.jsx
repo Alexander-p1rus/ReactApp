@@ -9,7 +9,6 @@ const Post = (props) => {
         <div className={classes.content}>
             <img src="https://i.ytimg.com/vi/GvCKLJIl718/hqdefault.jpg" className={classes.img}/>
             <div>
-                {console.log(props)}
                 {props.Message} и мой id={props.id}
             </div>
         </div>

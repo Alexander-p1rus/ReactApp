@@ -1,4 +1,6 @@
-import {renderUI} from "../renderUI";
+let renderUI=()=>{
+    console.log(1)
+}
 
 const state = {
     profileState: {
@@ -7,7 +9,7 @@ const state = {
             {postText: 'kak dela', likeCount: 8},
             {postText: 'top posti', likeCount: 8}
         ],
-        newPostText: "sasha"
+        newPostText: ""
     },
 
     dialogsState: {
@@ -38,9 +40,13 @@ const state = {
 
 }
 
+export const subscribe=(observer)=>{
+    renderUI=observer;
+}
+
 export const updatePostText = (text) => {
     state.profileState.newPostText = text
-    renderUI(state, addPost, updatePostText);
+    renderUI();
 }
 
 export const addPost = () => {
@@ -51,7 +57,7 @@ export const addPost = () => {
     }
 
     state.profileState.postItems.push(Data)
-    renderUI(state, addPost, updatePostText);
+    renderUI();
     state.profileState.newPostText=''
 
 }
