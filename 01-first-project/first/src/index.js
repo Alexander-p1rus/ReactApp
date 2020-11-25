@@ -8,7 +8,7 @@ import App from "./App";
  const renderUI=()=>{
     ReactDOM.render(
         <React.StrictMode>
-            <App updatePostText={store.updatePostText.bind(store)} state={store.getState()} addPost={store.addPost.bind(store)}/>
+            <App  state={store.getState()} dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );

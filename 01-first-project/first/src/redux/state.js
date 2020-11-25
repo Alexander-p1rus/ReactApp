@@ -37,7 +37,7 @@ let store = {
 
     },
 
-    getState(){
+    getState() {
         return this._state
     },
 
@@ -65,10 +65,28 @@ let store = {
         this._callback();
         this._state.profileState.newPostText = ''
 
+    },
+
+    dispatch(action) {
+        if (action.type == 'ADD-POST') {
+            let Data = {
+                postText: this._state.profileState.newPostText,
+                likeCount: 0
+            }
+
+            this._state.profileState.postItems.push(Data)
+            this._callback();
+            this._state.profileState.newPostText = ''
+
+        } else if (action.type == 'UPDATE-POST-TEXT') {
+            this._state.profileState.newPostText = action.text
+            this._callback();
+        }
     }
 
 
 }
 
 export default store
+
 

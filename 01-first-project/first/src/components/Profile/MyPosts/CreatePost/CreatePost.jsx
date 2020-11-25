@@ -6,13 +6,15 @@ const CreatePost = (props) => {
 
 
     const updateText = () => {
-
+        console.log(textData.current.value)
         const text = textData.current.value
-        props.updatePostText(text)
+        const action ={type:'UPDATE-POST-TEXT',text:text}
+        props.dispatch(action)
     }
 
     const GetPost = () => {
-        props.addPost()
+       const action={type:'ADD-POST'}
+        props.dispatch(action)
     }
     return (
         <div className={classes.content}>
