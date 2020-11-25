@@ -2,11 +2,11 @@ import React from "react";
 import classes from "./CreatePost.module.css"
 
 const CreatePost = (props) => {
-
     let textData = React.createRef()
 
 
     const updateText = () => {
+
         const text = textData.current.value
         props.updatePostText(text)
     }
