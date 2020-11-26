@@ -1,3 +1,8 @@
+const addPost = 'ADD-POST'
+const updatePostAction = 'UPDATE-POST-TEXT'
+const updateMessageText = 'UPDATE-MESSAGE-TEXT'
+const addMessage = 'ADD-MESSAGE'
+
 let store = {
     _state: {
         profileState: {
@@ -31,7 +36,8 @@ let store = {
                 {id: 1, message: 'hello mujiki'},
                 {id: 2, message: 'Kak dela'},
                 {id: 3, message: '4to novogo'}
-            ]
+            ],
+            newMessageText: ""
 
         }
 
@@ -68,7 +74,7 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type == 'ADD-POST') {
+        if (action.type == addPost) {
             let Data = {
                 postText: this._state.profileState.newPostText,
                 likeCount: 0
@@ -78,13 +84,41 @@ let store = {
             this._callback();
             this._state.profileState.newPostText = ''
 
-        } else if (action.type == 'UPDATE-POST-TEXT') {
+        } else if (action.type == updatePostAction) {
             this._state.profileState.newPostText = action.text
+            this._callback();
+        } else if (action.type == updateMessageText) {
+            this._state.dialogsState.newMessageText = action.text
+            this._callback()
+        } else if (action.type == addMessage) {
+            let Data = {
+                id: this._state.dialogsState.messageData.length + 1,
+                message: this._state.dialogsState.newMessageText
+            }
+
+            this._state.dialogsState.messageData.push(Data)
+            this._state.dialogsState.newMessageText = ''
             this._callback();
         }
     }
 
 
+}
+
+export const updateMessageActionCreater =(text)=>{
+    return {type:'UPDATE-MESSAGE-TEXT',text:text}
+}
+
+export const addMessageActionCreater=()=>{
+    return {type:'ADD-MESSAGE'}
+}
+
+export const updatePostActionCreater = (text) => {
+    return {type: updatePostAction, text: text}
+}
+
+export const addPostActionCreater = () => {
+    return {type: addPost}
 }
 
 export default store

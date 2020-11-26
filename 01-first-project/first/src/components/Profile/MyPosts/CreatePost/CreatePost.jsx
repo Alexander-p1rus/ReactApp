@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./CreatePost.module.css"
+import {addPostActionCreater, updatePostActionCreater} from "../../../../redux/state";
 
 const CreatePost = (props) => {
     let textData = React.createRef()
@@ -8,13 +9,11 @@ const CreatePost = (props) => {
     const updateText = () => {
         console.log(textData.current.value)
         const text = textData.current.value
-        const action ={type:'UPDATE-POST-TEXT',text:text}
-        props.dispatch(action)
+        props.dispatch(updatePostActionCreater(text))
     }
 
     const GetPost = () => {
-       const action={type:'ADD-POST'}
-        props.dispatch(action)
+        props.dispatch(addPostActionCreater())
     }
     return (
         <div className={classes.content}>

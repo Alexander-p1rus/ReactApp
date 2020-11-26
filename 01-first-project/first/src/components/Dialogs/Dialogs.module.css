@@ -1,6 +1,7 @@
 .dialog {
     display: grid;
-    grid-template-columns: 3fr 9fr
+    grid-template-columns: 3fr 9fr;
+    position: relative;
 }
 
 .dialogs {
@@ -21,9 +22,27 @@
 }
 
 .message_item {
-    color:yellow;
+    color: yellow;
 }
 
 .dialog_active {
     color: #565604;
+}
+
+.input_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+
+.input_form button {
+    height: 20px;
+    width: 100px;
+    margin: 2px auto;
+}
+
+.input_form textarea {
+    width: 100px;
+    margin: 0 auto;
 }
