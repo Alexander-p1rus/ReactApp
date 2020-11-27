@@ -5,10 +5,10 @@ import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import App from "./App";
 
- const renderUI=()=>{
+ const renderUI=(state)=>{
     ReactDOM.render(
         <React.StrictMode>
-            <App  state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+            <App  state={state} dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -17,6 +17,9 @@ import App from "./App";
 renderUI(store.getState())
 
 
-store.subscribe(renderUI);
+store.subscribe(()=>{
+    let state=store.getState()
+    renderUI(state)
+});
 
 reportWebVitals();
