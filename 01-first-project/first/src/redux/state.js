@@ -1,7 +1,6 @@
-const addPost = 'ADD-POST'
-const updatePostAction = 'UPDATE-POST-TEXT'
-const updateMessageText = 'UPDATE-MESSAGE-TEXT'
-const addMessage = 'ADD-MESSAGE'
+import profileReducer from "./profile-reducer";
+import messageReducer from "./message-reducer";
+
 
 let store = {
     _state: {
@@ -55,71 +54,13 @@ let store = {
         console.log(1)
     },
 
-    updatePostText(text) {
-        this._state.profileState.newPostText = text
-        this._callback();
-    },
-
-    addPost() {
-
-        let Data = {
-            postText: this._state.profileState.newPostText,
-            likeCount: 0
-        }
-
-        this._state.profileState.postItems.push(Data)
-        this._callback();
-        this._state.profileState.newPostText = ''
-
-    },
-
     dispatch(action) {
-        if (action.type == addPost) {
-            let Data = {
-                postText: this._state.profileState.newPostText,
-                likeCount: 0
-            }
-
-            this._state.profileState.postItems.push(Data)
-            this._callback();
-            this._state.profileState.newPostText = ''
-
-        } else if (action.type == updatePostAction) {
-            this._state.profileState.newPostText = action.text
-            this._callback();
-        } else if (action.type == updateMessageText) {
-            this._state.dialogsState.newMessageText = action.text
-            this._callback()
-        } else if (action.type == addMessage) {
-            let Data = {
-                id: this._state.dialogsState.messageData.length + 1,
-                message: this._state.dialogsState.newMessageText
-            }
-
-            this._state.dialogsState.messageData.push(Data)
-            this._state.dialogsState.newMessageText = ''
-            this._callback();
-        }
+        this._state.profileState = profileReducer(this._state.profileState, action)
+        this._state.dialogsState = messageReducer(this._state.dialogsState, action)
+        this._callback();
     }
-
-
 }
 
-export const updateMessageActionCreater =(text)=>{
-    return {type:'UPDATE-MESSAGE-TEXT',text:text}
-}
-
-export const addMessageActionCreater=()=>{
-    return {type:'ADD-MESSAGE'}
-}
-
-export const updatePostActionCreater = (text) => {
-    return {type: updatePostAction, text: text}
-}
-
-export const addPostActionCreater = () => {
-    return {type: addPost}
-}
 
 export default store
 
