@@ -1,19 +1,18 @@
 import React from "react";
 import classes from "./CreatePost.module.css"
-import {addPostActionCreater, updatePostActionCreater} from "../../../../redux/profile-reducer";
+
 
 const CreatePost = (props) => {
     let textData = React.createRef()
 
 
     const updateText = () => {
-        console.log(textData.current.value)
         const text = textData.current.value
-        props.dispatch(updatePostActionCreater(text))
+        props.updateText(text)
     }
 
     const GetPost = () => {
-        props.dispatch(addPostActionCreater())
+        props.addPost()
     }
     return (
         <div className={classes.content}>

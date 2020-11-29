@@ -16,7 +16,7 @@ let MyPosts = (props) => {
 
     return (
         <div className={classes.MyPosts}>
-            <CreatePost newPostText={props.newPostText} dispatch={props.dispatch}/>
+            <CreatePost newPostText={props.newPostText} addPost={props.addPost} updateText={props.updateText}/>
             <div className={classes.post_content}>
                 {getPostItems}
             </div>
