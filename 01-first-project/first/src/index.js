@@ -1,28 +1,29 @@
 import React from 'react';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
-import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import App from "./App";
 import {BrowserRouter} from "react-router-dom";
-import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
+import store from "./redux/redux-store";
 
-const renderUI=(store)=>{
+
+
+
+const renderUI=()=>{
     ReactDOM.render(
         <BrowserRouter>
-            <StoreContext.Provider value={store}>
+            <Provider store={store}>
                 <App/>
-            </StoreContext.Provider>
+            </Provider>
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
-console.log(store)
-renderUI(store)
+
+renderUI()
 
 
 store.subscribe(()=>{
-    renderUI(store)
+    renderUI()
 });
 
-reportWebVitals();
