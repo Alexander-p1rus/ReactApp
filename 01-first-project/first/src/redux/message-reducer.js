@@ -31,17 +31,22 @@ let initState={
 const messageReducer = (state=initState, action) => {
 
     switch (action.type) {
-        case updateMessageText:
-            state.newMessageText = action.text
-            return state
-        case addMessage:
+        case updateMessageText: {
+            let newState={...state}
+            newState.newMessageText = action.text
+            return newState
+        }
+        case addMessage: {
+            let newState={...state}
+            newState.messageData=[...state.messageData]
             let Data = {
-                id: state.messageData.length + 1,
-                message: state.newMessageText
+                id: newState.messageData.length + 1,
+                message: newState.newMessageText
             }
-            state.messageData.push(Data)
-            state.newMessageText = ''
-            return state
+            newState.messageData.push(Data)
+            newState.newMessageText = ''
+            return newState
+        }
         default:
             return state
     }

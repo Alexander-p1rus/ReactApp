@@ -7,23 +7,13 @@ import {Provider} from "react-redux";
 import store from "./redux/redux-store";
 
 
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </BrowserRouter>,
+    document.getElementById('root')
+)
 
-
-const renderUI=()=>{
-    ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </BrowserRouter>,
-        document.getElementById('root')
-    );
-}
-
-renderUI()
-
-
-store.subscribe(()=>{
-    renderUI()
-});
 
