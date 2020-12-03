@@ -3,13 +3,13 @@ import React from "react";
 import Header from "./components/Header/Header";
 import NavBar from "./components/navBar/navBar";
 import Profile from "./components/Profile/Profile";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 
 const App = () => {
-
     return (
             <div className="app-wrapper">
                 <Header/>
@@ -17,6 +17,7 @@ const App = () => {
                 <div className="app-wrapper-content">
                     <Route  path='/profile'  render={()=><Profile />}/>
                     <Route path='/message'   render={()=><DialogsContainer  />}/>
+                    <Route path='/users'    render={()=><UsersContainer/>}/>
                 </div>
             </div>
     );
