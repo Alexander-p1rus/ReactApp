@@ -4,32 +4,7 @@ const setUsers='SET-USERS'
 
 
 const initState = {
-    users: [
-        {
-            id: 1,
-            isFollow: true,
-            fullName: 'Sasha',
-            status: 'ya ho4u rasti',
-            urlImg: 'https://everyday.codes/wp-content/uploads/2020/01/0-U2DmhXYumRyXH6X1.png',
-            location: {country: 'Russian', town: 'Kazan'}
-        },
-        {
-            id: 2,
-            isFollow: false,
-            fullName: 'Anya',
-            status: 'ya ubirau govno',
-            urlImg: 'https://cdn.auth0.com/blog/logos/mobx.png',
-            location: {country: 'Russian', town: 'Samara'}
-        },
-        {
-            id: 3,
-            isFollow: false,
-            fullName: 'Ilya',
-            status: 'ya ignorshik ebanniy',
-            urlImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR44uNXuwS3I8WAL-IoiujdDj8Q2iBs2h0aBA&usqp=CAU',
-            location: {country: 'Russian', town: 'Moskow'}
-        }
-    ]
+    users: []
 }
 
 const UsersReducer = (state = initState, action) => {
@@ -39,7 +14,7 @@ const UsersReducer = (state = initState, action) => {
                 ...state,
                 users: state.users.map((user) => {
                     if (user.id == action.id) {
-                        user.isFollow = true
+                        user.followed = true
                     }
                     return user
                 })
@@ -50,7 +25,7 @@ const UsersReducer = (state = initState, action) => {
                 ...state,
                 users: state.users.map((user) => {
                     if (user.id == action.id) {
-                        user.isFollow = false
+                        user.followed = false
                     }
                     return user
                 })
@@ -58,7 +33,7 @@ const UsersReducer = (state = initState, action) => {
         case setUsers:
               return{
                   ...state,
-                  users:[state.users,...action.users]
+                  users:[...state.users,...action.users]
               }
         default:return state
     }
